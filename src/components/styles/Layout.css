@@ -1,3 +1,4 @@
+/* -------- Header -------- */
 .header {
   position: fixed;
   top: 0;
@@ -12,10 +13,12 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+/* Logo y nombre */
 .logo-section {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  flex-shrink: 1;
 }
 
 .logo {
@@ -25,12 +28,14 @@
 }
 
 .group-name {
-  color: var(--color-background); 
+  color: var(--color-background);
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  line-height: 1.2; /* para dos líneas si hace falta */
 }
 
+/* -------- Navbar -------- */
 .nav {
   display: flex;
   gap: 1.5rem;
@@ -54,8 +59,97 @@
   background-color: var(--color-accent);
   font-weight: 600;
 }
- 
+
+/* -------- Content -------- */
 .content {
   margin-top: 80px;
   padding: 1.5rem;
+}
+
+/* -------- Botón hamburguesa -------- */
+.menu-toggle {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1201; /* encima del panel lateral */
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+  /* Ocultar nav en móviles */
+  .nav {
+    display: none;
+    flex-direction: column;
+    padding-top: 4rem; /* separa las opciones del botón X */
+    gap: 1rem; /* espacio decente entre links */
+    overflow-y: auto; /* scroll si hay muchas opciones */
+  }
+
+  /* Mostrar hamburguesa */
+  .menu-btn {
+    display: flex;
+  }
+
+  /* Logo-section en dos líneas si no entra */
+  .logo-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .group-name {
+    font-size: 1.3rem; /* tamaño ligeramente menor para móviles */
+  }
+
+  /* Menú lateral */
+  #menu-toggle:checked ~ .nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 260px;
+    height: 100vh;
+    background: var(--color-primary);
+    padding: 2rem 1.5rem 1.5rem 1.5rem; /* padding superior + lateral */
+    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.3);
+    z-index: 1200;
+    animation: slideIn 0.3s ease forwards;
+  }
+
+  /* Animación hamburguesa → X */
+  #menu-toggle:checked ~ .menu-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  #menu-toggle:checked ~ .menu-btn span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked ~ .menu-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* -------- Animación del panel -------- */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
