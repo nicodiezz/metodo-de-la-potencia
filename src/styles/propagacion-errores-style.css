@@ -1,0 +1,209 @@
+.page-container h2,
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.math-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 680px;
+  width: 100%;
+  /* Improved horizontal centering with explicit margin */
+  margin: 20px auto;
+  border-left: 5px solid var(--color-primary);
+  background-color: var(--color-background);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.math-container h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: black;
+}
+
+.math-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Made math-row responsive - flex-wrap and adjusted alignment */
+  flex-wrap: wrap;
+}
+
+.math-row p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  /* Removed fixed width, made flexible and responsive */
+  min-width: 150px;
+  flex: 1 1 auto;
+  color: black;
+}
+
+.math-row .katex {
+  flex: 1;
+  color: black;
+  /* Added responsive overflow handling for math formulas */
+  min-width: 0;
+}
+
+.btn {
+  display: block;
+  margin: 30px 0 0;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  /* Made button responsive */
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons-final {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  /* Made button container responsive with flex-wrap */
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center; /* Center buttons in mobile view */
+}
+
+.btn-container-next,
+.btn-container-back {
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  /* Made navigation buttons responsive */
+  /* Reduced button width to make them less wide */
+  flex: 0 1 auto;
+  min-width: 120px;
+  max-width: 250px;
+}
+
+/* Added media queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .math-container {
+    padding: 12px;
+    /* Enhanced centering with consistent margins */
+    margin: 15px auto;
+    max-width: 95%;
+  }
+
+  .math-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .math-row p {
+    min-width: unset;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .math-row .katex {
+    font-size: 0.9em;
+    width: 100%;
+  }
+
+  .buttons-final {
+    flex-direction: column;
+    align-items: center; /* Center buttons in mobile view */
+    gap: 12px;
+  }
+
+  .btn-container-next,
+  .btn-container-back {
+    /* Fixed button width in mobile to be more compact */
+    width: auto;
+    min-width: 140px;
+    max-width: 250px;
+  }
+
+  .page-container h2 {
+    font-size: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .page-container h3 {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .math-container {
+    padding: 8px;
+    /* Maintained proper centering on small screens */
+    margin: 10px auto;
+    max-width: 98%;
+    border-radius: 8px;
+  }
+
+  .math-row .katex {
+    font-size: 0.8em;
+  }
+
+  .math-row {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .btn-container-next,
+  .btn-container-back {
+    padding: 10px 20px;
+    font-size: 14px;
+    /* Optimized button size for small screens */
+    min-width: 120px;
+    max-width: 250px;
+  }
+
+  .page-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .page-container h3 {
+    font-size: 1rem;
+  }
+
+  .math-container h4 {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .math-container {
+    padding: 6px;
+    /* Ensured centering on very small screens */
+    margin: 0 auto;
+  }
+
+  .math-row .katex {
+    font-size: 0.75em;
+  }
+
+  .page-container h2 {
+    font-size: 1.1rem;
+  }
+}

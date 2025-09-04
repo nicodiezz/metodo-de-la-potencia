@@ -9,6 +9,12 @@ function Layout({ children }) {
           <img src="./logo.png" alt="Logo" className="logo" />
           <span className="group-name">Goodfellas - Teoría de Errores</span>
         </div>
+        <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+<label htmlFor="menu-toggle" className="menu-btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</label>
         <nav className="nav">
           <NavLink to="/" end className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
             Inicio
