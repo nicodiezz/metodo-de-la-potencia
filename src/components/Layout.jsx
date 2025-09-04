@@ -32,19 +32,6 @@ function Layout({ children }) {
       </header>
       <main className="content">
         {children}
-        <div className="buttons-final">
-          <button
-            className="btn-container-back"
-            onClick={() => navigate("/")}
-          >
-            Volver al anterior
-          </button>
-          <button
-            className="btn-container-next"
-            onClick={() => navigate("/cociente")}
-          >Pasar al siguiente
-          </button>
-        </div>
       </main>
     </div>
   )
