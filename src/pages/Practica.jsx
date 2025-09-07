@@ -52,90 +52,102 @@ export default function Practica() {
 
   return (
     <div className="page-container">
+      <div className="header-text">
       <h2>Calculadora de Propagación de Errores</h2>
-
+      </div>
       {/* CALCULADORA */}
       <div className="math-container">
-        <div className="form-grid">
-          <div className="field">
-            <label>Valor x₁</label>
-            <input
-              type="number"
-              value={x1}
-              onChange={(e) => setX1(e.target.value)}
-              placeholder="Ej: 110"
-            />
-          </div>
-          <div className="field">
-            <label>Error Δx₁</label>
-            <input
-              type="number"
-              value={dx1}
-              onChange={(e) => setDx1(e.target.value)}
-              placeholder="Ej: 2.2"
-            />
-          </div>
-          <div className="field">
-            <label>Valor x₂</label>
-            <input
-              type="number"
-              value={x2}
-              onChange={(e) => setX2(e.target.value)}
-              placeholder="Ej: 2"
-            />
-          </div>
-          <div className="field">
-            <label>Error Δx₂</label>
-            <input
-              type="number"
-              value={dx2}
-              onChange={(e) => setDx2(e.target.value)}
-              placeholder="Ej: 0.02"
-            />
-          </div>
+  <div className="form-grid">
+    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <label style={{ width: "120px" }}>Valor x₁</label>
+      <input
+        type="number"
+        value={x1}
+        onChange={(e) => setX1(e.target.value)}
+        placeholder="Ej: 110"
+        style={{ width: "200px" }}
+      />
+    </div>
 
-          <div className="field full">
-            <label>Operación</label>
-            <select
-              value={operacion}
-              onChange={(e) => setOperacion(e.target.value)}
-            >
-              <option value="producto">Producto (x₁·x₂)</option>
-              <option value="cociente">Cociente (x₁/x₂)</option>
-            </select>
+    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <label style={{ width: "120px" }}>Error Δx₁</label>
+      <input
+        type="number"
+        value={dx1}
+        onChange={(e) => setDx1(e.target.value)}
+        placeholder="Ej: 2.2"
+        style={{ width: "200px" }}
+      />
+    </div>
+
+    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <label style={{ width: "120px" }}>Valor x₂</label>
+      <input
+        type="number"
+        value={x2}
+        onChange={(e) => setX2(e.target.value)}
+        placeholder="Ej: 2"
+        style={{ width: "200px" }}
+      />
+    </div>
+
+    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <label style={{ width: "120px" }}>Error Δx₂</label>
+      <input
+        type="number"
+        value={dx2}
+        onChange={(e) => setDx2(e.target.value)}
+        placeholder="Ej: 0.02"
+        style={{ width: "200px" }}
+      />
+    </div>
+
+    <div className="field full" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <label style={{ width: "120px" }}>Operación</label>
+      <select
+        value={operacion}
+        onChange={(e) => setOperacion(e.target.value)}
+        style={{ width: "200px" }}
+      >
+        <option value="producto">Producto (x₁·x₂)</option>
+        <option value="cociente">Cociente (x₁/x₂)</option>
+      </select>
+    </div>
+
+    <div className="actions" style={{ textAlign: "center" }}>
+      <button className="btn" onClick={calcular}>Calcular</button>
+    </div>
+  </div>
+
+  {resultado && (
+    <div className="result-box">
+      {typeof resultado === "string" ? (
+        <p>{resultado}</p>
+      ) : (
+        <>
+          <h3>Resultados</h3>
+          <div className="results-grid">
+            <div className="label">Valor:</div>
+            <div className="value">{resultado.valor.toFixed(4)}</div>
+
+            <div className="label">Cota error absoluto Δf:</div>
+            <div className="value">{resultado.delta.toExponential(3)}</div>
+
+            <div className="label">Error relativo %:</div>
+            <div className="value">{resultado.relativo.toFixed(2)}%</div>
           </div>
+        </>
+      )}
+    </div>
+  )}
+</div>
 
-          <div className="actions">
-            <button className="btn" onClick={calcular}>Calcular</button>
-          </div>
-        </div>
 
-        {resultado && (
-          <div className="result-box">
-            {typeof resultado === "string" ? (
-              <p>{resultado}</p>
-            ) : (
-              <>
-                <h3>Resultados</h3>
-                <div className="results-grid">
-                  <div className="label">Valor:</div>
-                  <div className="value">{resultado.valor.toFixed(4)}</div>
-
-                  <div className="label">Cota error absoluto Δf:</div>
-                  <div className="value">{resultado.delta.toExponential(3)}</div>
-
-                  <div className="label">Error relativo %:</div>
-                  <div className="value">{resultado.relativo.toFixed(2)}%</div>
-                </div>
-              </>
-            )}
-          </div>
-        )}
-      </div>
 
       {/* EJEMPLOS PRÁCTICOS */}
+      <div className="header-text">
       <h2>Ejemplos prácticos</h2>
-
+      </div>
       {/* EJERCICIO 7 */}
       <button className="btn" onClick={() => setMostrarEj7(!mostrarEj7)}>
         Ejercicio 7 – Ley de Ohm (Cociente)

@@ -5,6 +5,19 @@ h3 {
   color: black;
 }
 
+.header-text h2 {
+  color: var(--color-primary);
+}
+
+.header-text p {
+  color: var(--color-primary) !important;
+}
+
+
+.header-text h3 {
+  color: var(--color-secondary);
+}
+
 .math-container {
   display: flex;
   flex-direction: column;
@@ -13,7 +26,7 @@ h3 {
   width: 100%;
   /* Improved horizontal centering with explicit margin */
   margin: 20px auto;
-  border-left: 5px solid var(--color-primary);
+  border-left: 5px solid var(--color-secondary);
   background-color: var(--color-background);
   border-radius: 12px;
   padding: 20px;

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import "katex/dist/katex.min.css";
 import { BlockMath } from "react-katex";
-
+import '../styles/propagacion-errores-style.css';
 
 const steps = [
   {
@@ -53,62 +51,30 @@ const steps = [
   }
 ];
 
-
 export default function Cociente() {
-  const [step, setStep] = useState(1);
-
-  const nextStep = () => {
-    if (step < steps.length) setStep(step + 1);
-  };
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1);
-  };
-
   return (
-    <>
-      <h1>Propagación de los errores en operaciones básicas: Cociente</h1>
+    <div className="page-container">
+      <div className="header-text">
+      <h2>Propagación de errores en operaciones básicas: Cociente</h2>
+      <h3>Enfoque teórico</h3>
+
       <div
-        className="min-h-screen flex flex-col justify-center items-center p-6"
+        className="math-container"
         style={{
-          background: "linear-gradient(90deg, #8655e9c5, #a26dff5b)",
-          color: "white",
-          fontFamily: "Arial, sans-serif",
-          fontSize: "24px",
-          cursor: "pointer",
-        }}
-        onClick={(e) => {
-          const { clientX, currentTarget } = e;
-          if (clientX > currentTarget.clientWidth / 2) {
-            nextStep();
-          }
-          else {
-            prevStep();
-          }
+          padding: "24px",
+          borderRadius: "16px",
+          boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
+          backgroundColor: "#ffffff",
         }}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={step}
-            initial={{ opacity: 0, x: 40, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -40, scale: 0.9 }}
-            transition={{ duration: 0.4 }}
-            className="rounded-2xl shadow-xl p-8 max-w-3xl w-full"
-            style={{
-              color: "#000000ff",
-              height: "250px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <div className="flex flex-col items-center gap-6">
-              <BlockMath math={steps[step - 1].top} className="a"/>
-              {steps[step - 1].bottom && <BlockMath math={steps[step - 1].bottom} />}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        {steps.map((s) => (
+          <div key={s.id} className="math-row" style={{ marginBottom: "16px" }}>
+            <BlockMath math={s.top} />
+            {s.bottom && <BlockMath math={s.bottom} />}
+          </div>
+        ))}
       </div>
-    </>
+      </div>
+    </div>
   );
 }

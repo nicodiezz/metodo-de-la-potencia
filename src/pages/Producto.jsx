@@ -5,15 +5,13 @@ import "katex/dist/katex.min.css";
 import { BlockMath } from "react-katex";
 
 export default function ProductoErrores() {
-  const [mostrarResultado, setMostrarResultado] = useState(false);
-  const [mostrarResolucion, setMostrarResolucion] = useState(false);
-
   const navigate = useNavigate();
 
   return (
     <div className='page-container'>
-      <h2>Propagación de Errores en Operaciones Básicas (Producto)</h2>
-      <h3>📚 Enfoque teórico</h3>
+      <div className="header-text">
+      <h2>Propagación de Errores en Operaciones Básicas: Producto</h2>
+      <h3>Enfoque teórico</h3>
       <div className="math-container">
         <div className="math-row">
           <p>Función:</p>
@@ -44,48 +42,6 @@ export default function ProductoErrores() {
           <BlockMath math="\varepsilon^{*}(x_1 \cdot x_2) = \varepsilon^{*}(x_1) + \varepsilon^{*}(x_2)" />
         </div>
       </div>
-      <h3>🔢 Enfoque práctico</h3>
-      <div className="math-container">
-        <h4>Problema N° 9</h4>
-        <p>
-          Si las longitudes de los lados de un rectángulo tienen:
-        </p>
-        <BlockMath math="\varepsilon^{*}(a) = 0.03 \qquad \varepsilon^{*}(b) = 0.04" />
-        <p>Determinar una cota de error en el cálculo del área.</p>
-        {!mostrarResultado && (
-          <button
-            className="btn"
-            onClick={() => setMostrarResultado(true)}
-          >
-            Calcular
-          </button>
-        )}
-        {mostrarResultado && (
-          <>
-            <p>✅ La cota del error relativo en el cálculo del área es:</p>
-            <BlockMath math="\varepsilon^{*}(A) = 0.07 \quad (7\%)" />
-            {!mostrarResolucion && (
-              <button
-                className="btn"
-                onClick={() => setMostrarResolucion(true)}
-              >
-                Ver resolución
-              </button>
-            )}
-          </>
-        )}
-        {mostrarResolucion && (
-          <div className="resolucion">
-            <p>Aplicamos la fórmula de la cota del error relativo:</p>
-            <BlockMath math="\varepsilon^{*}(A) = \varepsilon^{*}(a) + \varepsilon^{*}(b)" />
-
-            <p>Sustituyendo valores:</p>
-            <BlockMath math="\varepsilon^{*}(A) = 0.03 + 0.04 = 0.07" />
-
-            <p>Por lo tanto:</p>
-            <BlockMath math="\varepsilon^{*}(A) = 0.07 \quad (7\%)" />
-          </div>
-        )}
       </div>
     </div>
   );
