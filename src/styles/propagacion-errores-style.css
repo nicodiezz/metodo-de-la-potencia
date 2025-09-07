@@ -1,7 +1,7 @@
 .page-container h2,
-h3 {
+.page-container h3 {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 40px 0 20px; /* 40px arriba, 20px abajo */
   color: black;
 }
 
@@ -13,7 +13,6 @@ h3 {
   color: var(--color-primary) !important;
 }
 
-
 .header-text h3 {
   color: var(--color-secondary);
 }
@@ -24,7 +23,6 @@ h3 {
   gap: 12px;
   max-width: 680px;
   width: 100%;
-  /* Improved horizontal centering with explicit margin */
   margin: 20px auto;
   border-left: 5px solid var(--color-secondary);
   background-color: var(--color-background);
@@ -43,7 +41,6 @@ h3 {
   display: flex;
   align-items: center;
   gap: 5px;
-  /* Made math-row responsive - flex-wrap and adjusted alignment */
   flex-wrap: wrap;
 }
 
@@ -51,7 +48,6 @@ h3 {
   display: flex;
   align-items: center;
   margin: 0;
-  /* Removed fixed width, made flexible and responsive */
   min-width: 150px;
   flex: 1 1 auto;
   color: black;
@@ -60,7 +56,6 @@ h3 {
 .math-row .katex {
   flex: 1;
   color: black;
-  /* Added responsive overflow handling for math formulas */
   min-width: 0;
 }
 
@@ -75,7 +70,6 @@ h3 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  /* Made button responsive */
   width: 100%;
   max-width: 300px;
   margin-left: auto;
@@ -86,10 +80,9 @@ h3 {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  /* Made button container responsive with flex-wrap */
   flex-wrap: wrap;
   gap: 15px;
-  align-items: center; /* Center buttons in mobile view */
+  align-items: center;
 }
 
 .btn-container-next,
@@ -102,18 +95,15 @@ h3 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  /* Made navigation buttons responsive */
-  /* Reduced button width to make them less wide */
   flex: 0 1 auto;
   min-width: 120px;
   max-width: 250px;
 }
 
-/* Added media queries for mobile responsiveness */
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
   .math-container {
     padding: 12px;
-    /* Enhanced centering with consistent margins */
     margin: 15px auto;
     max-width: 95%;
   }
@@ -137,13 +127,12 @@ h3 {
 
   .buttons-final {
     flex-direction: column;
-    align-items: center; /* Center buttons in mobile view */
+    align-items: center;
     gap: 12px;
   }
 
   .btn-container-next,
   .btn-container-back {
-    /* Fixed button width in mobile to be more compact */
     width: auto;
     min-width: 140px;
     max-width: 250px;
@@ -152,18 +141,19 @@ h3 {
   .page-container h2 {
     font-size: 1.5rem;
     padding: 0 10px;
+    margin-top: 30px; /* Ajuste responsive margen superior */
   }
 
   .page-container h3 {
     font-size: 1.2rem;
     padding: 0 10px;
+    margin-top: 20px; /* Ajuste responsive margen superior */
   }
 }
 
 @media (max-width: 480px) {
   .math-container {
     padding: 8px;
-    /* Maintained proper centering on small screens */
     margin: 10px auto;
     max-width: 98%;
     border-radius: 8px;
@@ -186,17 +176,18 @@ h3 {
   .btn-container-back {
     padding: 10px 20px;
     font-size: 14px;
-    /* Optimized button size for small screens */
     min-width: 120px;
     max-width: 250px;
   }
 
   .page-container h2 {
     font-size: 1.2rem;
+    margin-top: 25px;
   }
 
   .page-container h3 {
     font-size: 1rem;
+    margin-top: 15px;
   }
 
   .math-container h4 {
@@ -208,7 +199,6 @@ h3 {
 @media (max-width: 360px) {
   .math-container {
     padding: 6px;
-    /* Ensured centering on very small screens */
     margin: 0 auto;
   }
 

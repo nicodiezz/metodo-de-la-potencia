@@ -64,7 +64,6 @@ export default function Cociente() {
           padding: "24px",
           borderRadius: "16px",
           boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
-          backgroundColor: "#ffffff",
         }}
       >
         {steps.map((s) => (
