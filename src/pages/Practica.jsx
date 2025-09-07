@@ -15,8 +15,11 @@ export default function Practica() {
   // Ejemplos
   const [mostrarEj7, setMostrarEj7] = useState(false);
   const [mostrarPaso7, setMostrarPaso7] = useState(false);
-  const [mostrarEj8, setMostrarEj8] = useState(false);
-  const [mostrarPaso8, setMostrarPaso8] = useState(false);
+
+  // Ejercicio 9 (del archivo Producto.jsx)
+  const [mostrarEj9, setMostrarEj9] = useState(false);
+  const [mostrarResultado9, setMostrarResultado9] = useState(false);
+  const [mostrarResolucion9, setMostrarResolucion9] = useState(false);
 
   const calcular = () => {
     const val1 = parseFloat(x1);
@@ -52,102 +55,90 @@ export default function Practica() {
 
   return (
     <div className="page-container">
-      <div className="header-text">
       <h2>Calculadora de Propagación de Errores</h2>
-      </div>
+
       {/* CALCULADORA */}
       <div className="math-container">
-  <div className="form-grid">
-    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <label style={{ width: "120px" }}>Valor x₁</label>
-      <input
-        type="number"
-        value={x1}
-        onChange={(e) => setX1(e.target.value)}
-        placeholder="Ej: 110"
-        style={{ width: "200px" }}
-      />
-    </div>
-
-    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <label style={{ width: "120px" }}>Error Δx₁</label>
-      <input
-        type="number"
-        value={dx1}
-        onChange={(e) => setDx1(e.target.value)}
-        placeholder="Ej: 2.2"
-        style={{ width: "200px" }}
-      />
-    </div>
-
-    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <label style={{ width: "120px" }}>Valor x₂</label>
-      <input
-        type="number"
-        value={x2}
-        onChange={(e) => setX2(e.target.value)}
-        placeholder="Ej: 2"
-        style={{ width: "200px" }}
-      />
-    </div>
-
-    <div className="field" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <label style={{ width: "120px" }}>Error Δx₂</label>
-      <input
-        type="number"
-        value={dx2}
-        onChange={(e) => setDx2(e.target.value)}
-        placeholder="Ej: 0.02"
-        style={{ width: "200px" }}
-      />
-    </div>
-
-    <div className="field full" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <label style={{ width: "120px" }}>Operación</label>
-      <select
-        value={operacion}
-        onChange={(e) => setOperacion(e.target.value)}
-        style={{ width: "200px" }}
-      >
-        <option value="producto">Producto (x₁·x₂)</option>
-        <option value="cociente">Cociente (x₁/x₂)</option>
-      </select>
-    </div>
-
-    <div className="actions" style={{ textAlign: "center" }}>
-      <button className="btn" onClick={calcular}>Calcular</button>
-    </div>
-  </div>
-
-  {resultado && (
-    <div className="result-box">
-      {typeof resultado === "string" ? (
-        <p>{resultado}</p>
-      ) : (
-        <>
-          <h3>Resultados</h3>
-          <div className="results-grid">
-            <div className="label">Valor:</div>
-            <div className="value">{resultado.valor.toFixed(4)}</div>
-
-            <div className="label">Cota error absoluto Δf:</div>
-            <div className="value">{resultado.delta.toExponential(3)}</div>
-
-            <div className="label">Error relativo %:</div>
-            <div className="value">{resultado.relativo.toFixed(2)}%</div>
+        <div className="form-grid">
+          <div className="field">
+            <label>Valor x₁</label>
+            <input
+              type="number"
+              value={x1}
+              onChange={(e) => setX1(e.target.value)}
+              placeholder="Ej: 110"
+            />
           </div>
-        </>
-      )}
-    </div>
-  )}
-</div>
+          <div className="field">
+            <label>Error Δx₁</label>
+            <input
+              type="number"
+              value={dx1}
+              onChange={(e) => setDx1(e.target.value)}
+              placeholder="Ej: 2.2"
+            />
+          </div>
+          <div className="field">
+            <label>Valor x₂</label>
+            <input
+              type="number"
+              value={x2}
+              onChange={(e) => setX2(e.target.value)}
+              placeholder="Ej: 2"
+            />
+          </div>
+          <div className="field">
+            <label>Error Δx₂</label>
+            <input
+              type="number"
+              value={dx2}
+              onChange={(e) => setDx2(e.target.value)}
+              placeholder="Ej: 0.02"
+            />
+          </div>
 
+          <div className="field full">
+            <label>Operación</label>
+            <select
+              value={operacion}
+              onChange={(e) => setOperacion(e.target.value)}
+            >
+              <option value="producto">Producto (x₁·x₂)</option>
+              <option value="cociente">Cociente (x₁/x₂)</option>
+            </select>
+          </div>
 
+          <div className="actions">
+            <button className="btn" onClick={calcular}>Calcular</button>
+          </div>
+        </div>
+
+        {resultado && (
+          <div className="result-box">
+            {typeof resultado === "string" ? (
+              <p>{resultado}</p>
+            ) : (
+              <>
+                <h3>Resultados</h3>
+                <div className="results-grid">
+                  <div className="label">Valor:</div>
+                  <div className="value">{resultado.valor.toFixed(4)}</div>
+
+                  <div className="label">Cota error absoluto Δf:</div>
+                  <div className="value">{resultado.delta.toExponential(3)}</div>
+
+                  <div className="label">Error relativo %:</div>
+                  <div className="value">{resultado.relativo.toFixed(2)}%</div>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* EJEMPLOS PRÁCTICOS */}
-      <div className="header-text">
       <h2>Ejemplos prácticos</h2>
-      </div>
+
       {/* EJERCICIO 7 */}
       <button className="btn" onClick={() => setMostrarEj7(!mostrarEj7)}>
         Ejercicio 7 – Ley de Ohm (Cociente)
@@ -164,7 +155,7 @@ export default function Practica() {
           <BlockMath math="R = 55 \, \Omega" />
           <BlockMath math="\varepsilon^{*}(R) = 0.02 + 0.01 = 0.03 \; (3\%)" />
           <BlockMath math="\Delta R = 0.03 \cdot 55 = 1.65 \, \Omega" />
-          <BlockMath math="R \in [53.35 \, , \, 56.65] \, \Omega" />
+          <BlockMath math="R \in [53.35 \, \, 56.65] \,, \Omega" />
 
           {!mostrarPaso7 && (
             <button className="btn" onClick={() => setMostrarPaso7(true)}>
@@ -191,54 +182,52 @@ export default function Practica() {
         </div>
       )}
 
-      {/* EJERCICIO 8 */}
-      <button className="btn" onClick={() => setMostrarEj8(!mostrarEj8)}>
-        Ejercicio 8 – Área del triángulo (Producto)
+      {/* EJERCICIO 9 (desde Producto.jsx) */}
+      <button className="btn" onClick={() => setMostrarEj9(!mostrarEj9)}>
+        Ejercicio 9 – Área del rectángulo (Producto)
       </button>
 
-      {mostrarEj8 && (
+      {mostrarEj9 && (
         <div className="math-container">
-          <h3>Ejercicio 8: Área de triángulo</h3>
-          <p>Con dos lados y el ángulo comprendido:</p>
-          <BlockMath math="A = \tfrac{1}{2} \, b \cdot c \cdot \sin(\alpha)" />
-          <p>Datos (de la figura):</p>
-          <BlockMath math="b = 485.23 \, m \quad \Delta(b) = 0.05 \, m" />
-          <BlockMath math="c = 419.82 \, m \quad \Delta(c) = 0.005 \, m" />
-          <BlockMath math="\alpha = 49^\circ 32'20'' \quad \Delta(\alpha) = 10''" />
-          <p>Resultados:</p>
-          <BlockMath math="A \approx 87{,}922.6 \, m^2" />
-          <BlockMath math="\Delta A \approx 16.7 \, m^2" />
-          <BlockMath math="A \in [87{,}905.9 \; ; \; 87{,}939.3] \, m^2" />
+          <h3>Ejercicio 9: Área de rectángulo</h3>
+          <p>Con lados <strong>a</strong> y <strong>b</strong>:</p>
+          <BlockMath math="A = a \cdot b" />
+          <p>Datos del problema:</p>
+          <BlockMath math="\varepsilon^{*}(a) = 0.03 \quad (3\%)" />
+          <BlockMath math="\varepsilon^{*}(b) = 0.04 \quad (4\%)" />
 
-          {!mostrarPaso8 && (
-            <button className="btn" onClick={() => setMostrarPaso8(true)}>
-              Ver paso a paso
+          {!mostrarResultado9 && (
+            <button className="btn" onClick={() => setMostrarResultado9(true)}>
+              Calcular
             </button>
           )}
 
-          {mostrarPaso8 && (
+          {mostrarResultado9 && (
+            <>
+              <p>✅ La cota del error relativo en el cálculo del área es:</p>
+              <BlockMath math="\varepsilon^{*}(A) = 0.07 \quad (7\%)" />
+
+              {!mostrarResolucion9 && (
+                <button className="btn" onClick={() => setMostrarResolucion9(true)}>
+                  Ver resolución
+                </button>
+              )}
+            </>
+          )}
+
+          {mostrarResolucion9 && (
             <div className="step-box">
               <h4>Paso a paso</h4>
               <ol>
-                <li>Fórmula <BlockMath math="A = \tfrac{1}{2} \, b \cdot c \cdot \sin(\alpha)" /></li>
-                <li>Conversión
-                  <BlockMath math="\alpha \approx 49.5389^\circ \approx 0.8646 \, rad" />
-                  <BlockMath math="\Delta \alpha = 10'' \approx 4.85 \times 10^{-5} \, rad" />
+                <li>Fórmula <BlockMath math="A = a \cdot b" /></li>
+                <li>Errores relativos dados
+                  <BlockMath math="\varepsilon^{*}(a) = 0.03, \; \varepsilon^{*}(b) = 0.04" />
                 </li>
-                <li>Derivadas
-                  <BlockMath math="\frac{\partial A}{\partial b} = \tfrac{1}{2} c \sin(\alpha)" />
-                  <BlockMath math="\frac{\partial A}{\partial c} = \tfrac{1}{2} b \sin(\alpha)" />
-                  <BlockMath math="\frac{\partial A}{\partial \alpha} = \tfrac{1}{2} b c \cos(\alpha)" />
+                <li>Se suman para el producto
+                  <BlockMath math="\varepsilon^{*}(A) = \varepsilon^{*}(a) + \varepsilon^{*}(b) = 0.07" />
                 </li>
-                <li>Área nominal
-                  <BlockMath math="A \approx 87{,}922.6 \, m^2" />
-                </li>
-                <li>Cota de error
-                 
-                  <BlockMath math="\Delta A \approx 182.0 \cdot 0.05 + 205.3 \cdot 0.005 + 134{,}800 \cdot 4.85 \times 10^{-5} \approx 16.7 \, m^2" />
-                </li>
-                <li>Intervalo
-                  <BlockMath math="A \in [87{,}905.9 \; ; \; 87{,}939.3] \, m^2" />
+                <li>Error absoluto del área (si se conoce a y b)
+                  <BlockMath math="\Delta A = \varepsilon^{*}(A) \cdot (a \cdot b)" />
                 </li>
               </ol>
             </div>
