@@ -1,7 +1,7 @@
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 
-export default function Integrante1() {
+export default function Presentacion() {
   return (
     <div className="page-container">
       {/* Encabezado */}
