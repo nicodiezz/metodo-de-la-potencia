@@ -6,8 +6,7 @@ export default function Integrante1() {
     <div className="page-container">
       {/* Encabezado */}
       <div className="header-text">
-        <h1>Integrante 1 – Repaso muy breve</h1>
-        <h2>Autovalores y Autovectores + conexión con el Método de la Potencia</h2>
+        <h1>Autovalores y Autovectores + conexión con el Método de la Potencia</h1>
       </div>
 
       {/* Definición clara */}
