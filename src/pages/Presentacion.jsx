@@ -1,53 +1,73 @@
-import 'katex/dist/katex.min.css'
-import { BlockMath } from 'react-katex'
-import './styles/Presentacion.css'
+import "katex/dist/katex.min.css";
+import { BlockMath, InlineMath } from "react-katex";
 
-function Presentacion() {
+export default function Integrante1() {
   return (
-    <div className="presentacion">
-      <h1 className="titulo">Propagación de errores en operaciones básicas</h1>
-      <h2 className="subtitulo">Conceptos claves</h2>
+    <div className="page-container">
+      {/* Encabezado */}
+      <div className="header-text">
+        <h1>Integrante 1 – Repaso muy breve</h1>
+        <h2>Autovalores y Autovectores + conexión con el Método de la Potencia</h2>
+      </div>
 
-      <div className="cards-grid">
-        {/* Card 1 */}
-        <div className="card">
-          <h3>Función u = f(x)</h3>
-          <p>
-            Una función <em>u</em> depende de variables <em>x₁, x₂, …, xₙ</em> que
-            poseen errores asociados.
-          </p>
-          <BlockMath math={'u = f(x_1, x_2, ..., x_n)'} />
-        </div>
+      {/* Definición clara */}
+      <div className="math-container">
+        <h3>¿Qué son autovalores y autovectores?</h3>
+        <p>
+          Sea <InlineMath math={"A"}/> una matriz cuadrada de orden n. Un número
+          <InlineMath math={"\\lambda"}/> es un <strong>autovalor</strong> de
+          <InlineMath math={"A"}/> si existe un vector no nulo <InlineMath math={"x"}/> tal que:
+        </p>
+        <BlockMath math={"A x = \\lambda x, \\quad x \\neq 0"} />
+        <p>
+          En ese caso, el vector <InlineMath math={"x"}/> se llama
+          <strong> autovector</strong> asociado al autovalor <InlineMath math={"\\lambda"}/>.
+        </p>
+        <p>
+          Equivalentemente, los autovalores se obtienen resolviendo la ecuación
+          característica:
+        </p>
+        <BlockMath math={"\\det(A - \\lambda I) = 0"} />
+      </div>
 
-        {/* Card 2 */}
-        <div className="card">
-          <h3>Errores absolutos de las variables</h3>
-          <p>
-            Cada variable <em>xᵢ</em> posee un error absoluto asociado, denotado como:
-          </p>
-          <BlockMath math={'\\Delta x_i'} />
-        </div>
+      {/* Intuición gráfica */}
+      <div className="math-container">
+        <h3>Una intuición en 1 frase</h3>
+        <p>
+          Un autovector es una <strong>dirección invariante</strong>: la matriz
+          <InlineMath math={"A"}/> no cambia su orientación, solo la multiplica por un factor
+          <InlineMath math={"\\lambda"}/> que indica cuánto se estira o encoge.
+        </p>
+        <h4>Ejemplo intuitivo</h4>
+        <p>
+          Si <InlineMath math={"A = \\begin{bmatrix} 2 & 0 \\ \\ 0 & 1/2 \\end{bmatrix}"}/> entonces:
+          <br/> <InlineMath math={"e_1 = (1,0)^T"}/> es autovector con
+          <InlineMath math={"\\lambda_1=2"}/> (se duplica su longitud).<br/>
+          <InlineMath math={"e_2 = (0,1)^T"}/> es autovector con
+          <InlineMath math={"\\lambda_2=1/2"}/> (se reduce a la mitad).
+        </p>
+      </div>
 
-        {/* Card 3 */}
-        <div className="card">
-          <h3>Cota de error absoluto</h3>
-          <p>
-            La cota superior del error absoluto de una función <em>u</em> se define como:
-          </p>
-          <BlockMath math={'\\Delta^*(u) = \\sum_{i=1}^{n} \\left| \\frac{\\partial u}{\\partial x_i} \\right| \\cdot \\Delta^*(x_i)'} />
-        </div>
+      {/* Conexión con clase de hoy */}
+      <div className="math-container">
+        <h3>Conexión con el tema de hoy</h3>
+        <p>
+          El <strong>Método de la Potencia</strong> es un procedimiento iterativo para calcular
+          el <em>autovalor dominante</em> (el de mayor módulo) y su autovector asociado.
+        </p>
+        <BlockMath math={"y_{k+1} = A y_k, \\quad x_k = \\frac{y_k}{\\|y_k\\|}, \\quad \\hat{\\lambda}_k = \\frac{x_k^T A x_k}{x_k^T x_k}"} />
+        <ul>
+          <li>Consiste en multiplicar repetidamente por <InlineMath math={"A"}/> y normalizar.</li>
+          <li>Si <InlineMath math={"|\\lambda_1| > |\\lambda_2| \\ge \\cdots"}/> y el vector inicial tiene componente en la dirección de <InlineMath math={"x_1"}/>, entonces <InlineMath math={"x_k"}/> converge al autovector dominante.</li>
+          <li>Limitación: solo encuentra el autovalor de mayor módulo. Para otros, se usan variantes como potencia inversa o deflación.</li>
+        </ul>
+      </div>
 
-        {/* Card 4 */}
-        <div className="card">
-          <h3>Cota de error relativo</h3>
-          <p>
-            La cota superior del error relativo de una función <em>u</em> se define como:
-          </p>
-          <BlockMath math={'\\varepsilon^*(u) = \\frac{\\Delta^*(u)}{|u|}'} />
-        </div>
+
+      {/* Cierre */}
+      <div className="math-container" style={{textAlign:"center"}}>
+        <p><em>Idea clave:</em> un autovector es una dirección invariante y el método de la potencia encuentra el correspondiente al autovalor más grande en módulo.</p>
       </div>
     </div>
-  )
+  );
 }
-
-export default Presentacion
