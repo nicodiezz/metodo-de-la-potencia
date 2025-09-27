@@ -11,9 +11,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Presentacion />} />
-          <Route path="/producto" element={<Teoria />} />
+          <Route path="/teoria" element={<Teoria />} />
           <Route path="/practica" element={<Practica />} />
-          <Route path="/cociente" element={<Cierre />} />
+          <Route path="/cierre" element={<Cierre />} />
         </Routes>
       </Layout>
     </Router>
