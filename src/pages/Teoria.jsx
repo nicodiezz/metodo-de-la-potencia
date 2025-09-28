@@ -123,30 +123,6 @@ export default function Teoria() {
           <BlockMath math="\lim_{k \to \infty} \lambda_k = \text{autovalor dominante}" />
         </div>
       )
-    },
-    {
-      title: "Condiciones",
-      content: (
-        <div>
-          <Row>
-            <Col md={6}>
-              <Card className="h-100" style={{borderColor: '#28a745'}}>
-                <Card.Header style={{backgroundColor: '#d4edda', color: '#155724'}}>
-                  <strong>✅ Cuándo funciona bien:</strong>
-                </Card.Header>
-                <Card.Body style={{backgroundColor: '#f8fff9'}}>
-                  <ul className="list-unstyled" style={{color: '#155724'}}>
-                    <li className="mb-2">• Existe un autovalor dominante claro</li>
-                    <li className="mb-2">• <InlineMath math="|\lambda_1| > |\lambda_2|" /></li>
-                    <li className="mb-2">• La matriz es diagonalizable</li>
-                    <li className="mb-0">• El vector inicial no es ortogonal al autovector dominante</li>
-                  </ul>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-      )
     }
   ];
 
