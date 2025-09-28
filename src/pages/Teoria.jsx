@@ -125,7 +125,7 @@ export default function Teoria() {
       )
     },
     {
-      title: "Condiciones y Limitaciones",
+      title: "Condiciones",
       content: (
         <div>
           <Row>
@@ -140,21 +140,6 @@ export default function Teoria() {
                     <li className="mb-2">• <InlineMath math="|\lambda_1| > |\lambda_2|" /></li>
                     <li className="mb-2">• La matriz es diagonalizable</li>
                     <li className="mb-0">• El vector inicial no es ortogonal al autovector dominante</li>
-                  </ul>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={6}>
-              <Card className="h-100" style={{borderColor: '#dc3545'}}>
-                <Card.Header style={{backgroundColor: '#f8d7da', color: '#721c24'}}>
-                  <strong>❌ Limitaciones:</strong>
-                </Card.Header>
-                <Card.Body style={{backgroundColor: '#fff5f5'}}>
-                  <ul className="list-unstyled" style={{color: '#721c24'}}>
-                    <li className="mb-2">• Solo encuentra el autovalor más grande</li>
-                    <li className="mb-2">• Convergencia lenta si <InlineMath math="|\lambda_1| \approx |\lambda_2|" /></li>
-                    <li className="mb-2">• No funciona con autovalores complejos dominantes</li>
-                    <li className="mb-0">• Sensible a errores de redondeo</li>
                   </ul>
                 </Card.Body>
               </Card>
