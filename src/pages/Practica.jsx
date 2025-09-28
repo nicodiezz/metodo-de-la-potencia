@@ -74,15 +74,15 @@ export default function Practica() {
 
   function updateCell(i, j, value) {
     const newM = matrix.map(row => row.slice());
-    newM[i][j] = value; // Guardamos como string
+    newM[i][j] = value;
     setMatrix(newM);
   }
 
   function updateCustomVec(i, value) {
     setCustomVec(prev => {
-    const next = prev.slice();
-    next[i] = value; // Guardamos como string
-    return next;
+      const next = prev.slice();
+      next[i] = value;
+      return next;
     });
   }
 
@@ -96,14 +96,6 @@ export default function Practica() {
     for (let i = 0; i < Math.min(n, custom.length); i++) v[i] = Number(custom[i]) || 0;
     return v;
   }
-
-  function handleCompute() {
-  const A = matrix.map(row => row.map(v => parseFloat(v.toString().replace(",", ".")) || 0));
-  const x0 = parseInitialVec(n, vectorMode, customVec.map(v => parseFloat(v.toString().replace(",", ".")) || 0));
-  const res = runPowerMethod(A, x0, { maxIter: Number(iterations), tol: Number(tol), normalizeBy: "max" });
-  setResult({ A, x0, ...res });
-  setShowResult(true);
-}
 
   function runPowerMethod(A, x0, { maxIter = 100, tol = 1e-10, normalizeBy = "max" } = {}) {
     const n = A.length;
@@ -163,10 +155,14 @@ export default function Practica() {
 
   return (
     <div className="page">
+      <div className="header-section">
+          <h1 className="main-title">Práctica</h1>
+          <p className="subtitle">Calculadora y ejemplo de aplicación</p>
+      </div>
       {/* CALCULADORA */}
       <div className="card calculator">
         <div className="calculator-inner">
-          <h2 className="card-title">Calculadora — configura tu matriz</h2>
+          <h2 className="card-title" style={{ textAlign: "center" }}>Calculadora 🔢</h2>
 
           <div className="controls-row">
             <label>
@@ -183,7 +179,7 @@ export default function Practica() {
 
             <label>
               Tolerancia:
-              <input type="number" step="1e-6" value={tol} onChange={e => setTol(e.target.value)} className="input-small"/>
+              <input type="number" step="1e-6" placeholder="0,01" value={tol} onChange={e => setTol(e.target.value)} className="input-small"/>
             </label>
           </div>
 
@@ -292,7 +288,7 @@ export default function Practica() {
 
       {/* EJEMPLO */}
       <div className="card example-card">
-        <h3 className="card-title">Ejercicio de ejemplo:</h3>
+        <h2 className="card-title">Ejercicio de ejemplo 🏭</h2>
 
         <div className="example-enunciado">
           <p>Imaginemos una fábrica con 2 áreas:</p>
@@ -339,7 +335,7 @@ export default function Practica() {
             </div>
           )}
 
-          {/* BOTÓN VER RESOLUCIÓN para mostrar */}
+          {/* BOTÓN VER RESOLUCIÓN */}
           {!showResolution && (
             <div className="center-btn" style={{ marginTop: 12 }}>
               <button className="btn outline" onClick={() => setShowResolution(true)}>

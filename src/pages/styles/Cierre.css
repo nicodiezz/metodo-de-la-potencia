@@ -61,7 +61,7 @@
   font-size: 1.8rem;
 }
 
-.examples-grid {
+.examples-grid-cierre {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -71,7 +71,7 @@
   padding: 2rem;
   border-radius: 15px;
   text-align: center;
-  color: white;
+  color: white !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
