@@ -73,7 +73,6 @@ const Cierre = () => {
         {/* Conclusión */}
         <section className="conclusion-section">
           <h2>¡Gracias por su atención!</h2>
-          <p>El Método de la Potencia: Simple, poderoso y presente en nuestro día a día</p>
         </section>
       </div>
     </div>
