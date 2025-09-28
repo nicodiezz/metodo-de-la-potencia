@@ -41,7 +41,8 @@
 /* títulos en las cards */
 .card-title {
   color: var(--color-primary);
-  font-size: 20px;
+  font-size: 35px;
+  width: 700;
   margin: 0 0 6px 0;
   text-align: center;
 }
@@ -208,11 +209,24 @@
   border: 1px solid #ddd;
 }
 
-/* responsive */
+.example-enunciado {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 12px;
+  color: black !important;
+}
+
+/* Scroll horizontal para KaTeX en móviles */
 @media (max-width: 720px) {
-  .matrix-area {
-    flex-direction: column;
+  .example-enunciado {
+    color: black !important; /* asegura que el texto siga negro */
   }
-  .cell-input { width: 56px; }
-  .vector-cell { width: 52px; }
+
+  .example-enunciado .katex-display {
+    overflow-x: auto;           /* habilita scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* suaviza en iOS */
+    max-width: 100%;            /* no excede el ancho de la card */
+    display: block;             /* asegura que sea bloque y scrollable */
+    box-sizing: border-box;
+  }
 }

@@ -45,9 +45,29 @@
   font-size: 0.95rem;
 }
 
+.idea-key {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #e0f7ff !important; /* fondo celeste */
+  border: 2px solid #9be0ff !important; /* borde más fuerte */
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  color: #3a3aff !important; /* texto azul oscuro */
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.idea-key .icon {
+  font-size: 18px;
+  margin-top: 2px; /* alinear con el texto */
+}
+
+
 /* Responsive: 2 columnas en desktop */
 @media (min-width: 768px) {
   .cards-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+

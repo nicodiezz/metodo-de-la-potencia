@@ -17,7 +17,7 @@ const Cierre = () => {
             Ejemplos de la vida real
           </h2>
           
-          <div className="examples-grid">
+          <div className="examples-grid-cierre">
             <div className="example-card google">
               <div className="card-icon">🔍</div>
               <h3>Google PageRank</h3>
