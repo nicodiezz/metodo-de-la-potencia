@@ -44,7 +44,7 @@ export default function Teoria() {
       content: (
         <div>
           <p className="mb-4">Comenzamos con un vector inicial <InlineMath math="v_0" /> aleatorio (pero no el vector cero).</p>
-          <BlockMath math="v_0 = \begin{bmatrix} v_{01} \\ v_{02} \\ \vdots \\ v_{0n} \end{bmatrix}" />
+          <BlockMath math="y_0 = \begin{bmatrix} y_{01} \\ y_{02} \\ \vdots \\ y_{0n} \end{bmatrix}" />
           <Alert variant="success" className="mt-4" 
                  style={{backgroundColor: '#e8f6e8', borderColor: 'var(--color-accent)'}}>
             <Alert.Heading className="h6" style={{color: '#2d5a2d'}}>
@@ -85,8 +85,8 @@ export default function Teoria() {
         <div>
           <p className="mb-4">Después de muchas iteraciones, el vector converge hacia el autovector dominante:</p>
           <BlockMath math="v_k \to v_{\text{dominante}} \text{ cuando } k \to \infty" />
-          <p className="my-4">Y el autovalor se puede estimar como el cociente entre las mayores componentes:</p>
-          <BlockMath math="\lambda_k \approx \frac{\text{máxima componente de } y_k}{\text{máxima componente de } v_{k-1}}" />
+          <p className="my-4">Y el autovalor se puede estimar por medio del Cociente de Rayleigh:</p>
+          <BlockMath math="\lambda_k \approx \frac{y^{T} A y}{y^{T} y}" />
           <Alert variant="primary" className="mt-4"
                  style={{backgroundColor: '#e3f2fd', borderColor: 'var(--color-primary)'}}>
             <Alert.Heading className="h6" style={{color: 'var(--color-primary)'}}>
@@ -114,7 +114,7 @@ export default function Teoria() {
                 <div className="mb-2">2. Para k = 1, 2, 3, ...</div>
                 <div className="ms-4 mb-1">a. yₖ = A · vₖ₋₁</div>
                 <div className="ms-4 mb-1">b. vₖ = yₖ / ||yₖ||</div>
-                <div className="ms-4 mb-2">c. λₖ = máx(yₖ) / máx(vₖ₋₁)</div>
+                <div className="ms-4 mb-2">c. λₖ = (y^T * Ay) / (y^T * y) </div>
                 <div>3. Repetir hasta convergencia</div>
               </div>
             </Card.Body>
